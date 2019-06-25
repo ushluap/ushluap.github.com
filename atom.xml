@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>量化研究院- 煉金致富</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://ushluap.github.io/"/>
+  <updated>2019-06-25T14:58:41.000Z</updated>
+  <id>http://ushluap.github.io/</id>
+  
+  <author>
+    <name>BC Hsu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test1</title>
+    <link href="http://ushluap.github.io/blog/2019/06/25/test1/"/>
+    <id>http://ushluap.github.io/blog/2019/06/25/test1/</id>
+    <published>2019-06-25T14:58:36.000Z</published>
+    <updated>2019-06-25T14:58:41.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="math" scheme="http://ushluap.github.io/categories/math/"/>
+    
+    
+  </entry>
+  
+</feed>
