@@ -21,7 +21,7 @@
 <meta property="og:description" content="一、Python爬蟲如果你已經對Python了解了，十分鐘就可以照著本篇的說明學會如何撈出台灣股票從2000到現在的所有股價。但如果你從沒接觸過Python，建議從以下清單從頭學習。 預備知識: Python環境安裝 Python 語法 Dataframe Python 簡單爬蟲  基本爬蟲步驟:網路爬蟲基本的步驟如下:   Step 1: 觀察網頁特性 Step 2: 用Get/Post將網頁">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="http://ushluap.github.io/2019-06-26-crawler-1/Python-Crawler.png">
-<meta property="og:updated_time" content="2019-06-26T17:41:03.000Z">
+<meta property="og:updated_time" content="2019-06-27T14:20:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Python 股票爬蟲]十分鐘學會Python爬台股(From Yahoo Finance API)">
 <meta name="twitter:description" content="一、Python爬蟲如果你已經對Python了解了，十分鐘就可以照著本篇的說明學會如何撈出台灣股票從2000到現在的所有股價。但如果你從沒接觸過Python，建議從以下清單從頭學習。 預備知識: Python環境安裝 Python 語法 Dataframe Python 簡單爬蟲  基本爬蟲步驟:網路爬蟲基本的步驟如下:   Step 1: 觀察網頁特性 Step 2: 用Get/Post將網頁">
@@ -232,7 +232,7 @@ ga('send', 'pageview');
 <h3 id="Step-4-將Data存進Database裡"><a href="#Step-4-將Data存進Database裡" class="headerlink" title="Step 4: 將Data存進Database裡"></a>Step 4: 將Data存進Database裡</h3><p>因為資料量很小的關係，我決定將它寫入 pickle 就好</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'stock.pkl'</span>,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    pickle.dump(df,f)</span><br></pre></td></tr></table></figure>
 
-<h2 id="三、Python-爬台灣個股詳細步驟"><a href="#三、Python-爬台灣個股詳細步驟" class="headerlink" title="三、Python 爬台灣個股詳細步驟"></a>三、Python 爬台灣個股詳細步驟</h2><p>了解上面步驟後，接下來就可以學習怎麼把全台灣的股票抓下來。</p>
+<h2 id="三、Python-爬台灣個全部股票的詳細步驟"><a href="#三、Python-爬台灣個全部股票的詳細步驟" class="headerlink" title="三、Python 爬台灣個全部股票的詳細步驟"></a>三、Python 爬台灣個全部股票的詳細步驟</h2><p>了解上面步驟後，接下來就可以學習怎麼把全台灣的股票抓下來。</p>
 <h3 id="Step-1-Import-所有的套件"><a href="#Step-1-Import-所有的套件" class="headerlink" title="Step 1: Import 所有的套件"></a>Step 1: Import 所有的套件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> StringIO</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> pickle</span><br></pre></td></tr></table></figure>
 
 <h3 id="Step-2-用time套件處理timestamp"><a href="#Step-2-用time套件處理timestamp" class="headerlink" title="Step 2: 用time套件處理timestamp"></a>Step 2: 用time套件處理timestamp</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_today_timestamp</span><span class="params">()</span>:</span></span><br><span class="line">    today = time.strftime(<span class="string">"%Y-%m-%d"</span>,time.gmtime())</span><br><span class="line">    <span class="keyword">return</span> int(time.mktime(time.strptime(today, <span class="string">"%Y-%m-%d"</span>)))</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_timestamp_from_today</span><span class="params">(n)</span>:</span></span><br><span class="line">    today = create_today_timestamp()</span><br><span class="line">    <span class="keyword">return</span> today + n*<span class="number">24</span>*<span class="number">3600</span></span><br><span class="line">tomorrow_timestamp = create_timestamp_from_today(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
@@ -256,7 +256,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://ushluap.github.io/2019-06-26-crawler-1/" data-id="cjxdjbp2a0000kg20vzfblhhy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://ushluap.github.io/2019-06-26-crawler-1/" data-id="cjxer8ree00001f208r05efjn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
